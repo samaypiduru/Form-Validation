@@ -1,3 +1,3 @@
 # Form-Validation
 
-A simple login page that validates input. Uses regex to validate the email input, and checks against a more basic email format which likely wouldn't detect many invalid addresses.
+A login page that validates input built using HTML, JS, CSS. The regular expression used for the email address validation is a simpler implementation which probably won't be able to throw errors for many invalid emails.
