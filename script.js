@@ -1,8 +1,8 @@
 function validateData() {
-    const username = document.getElementById('username').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const passwordConfirm = document.getElementById('passwordConfirm').value.trim();
+    let username = document.getElementById('username').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let password = document.getElementById('password').value.trim();
+    let passwordConfirm = document.getElementById('passwordConfirm').value.trim();
 
     if(username == '') inputInvalid('username', 'usernameErrInfo', "Username cannot be blank");
     else inputGood('username', 'usernameErrInfo');
