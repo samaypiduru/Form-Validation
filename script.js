@@ -1,3 +1,5 @@
+const regExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function validateData() {
     let username = document.getElementById('username').value.trim();
     let email = document.getElementById('email').value.trim();
@@ -7,21 +9,20 @@ function validateData() {
     if(username == '') inputInvalid('username', 'usernameErrInfo', "Username cannot be blank");
     else inputGood('username', 'usernameErrInfo');
 
-    if(email.length == '') inputInvalid('email', 'emailErrInfo', "Email cannot be blank");
+    if(email == '') inputInvalid('email', 'emailErrInfo', "Email cannot be blank");
     else if(!validateEmail(email)) inputInvalid('email', 'emailErrInfo', "Email is invalid");
     else inputGood('email', 'emailErrInfo');
 
-    if(password.length == '') inputInvalid('password', 'passwordErrInfo', 'Password cannot be blank');
+    if(password == '') inputInvalid('password', 'passwordErrInfo', 'Password cannot be blank');
     else inputGood('password', 'passwordErrInfo');
 
-    if(passwordConfirm.length == '') inputInvalid('passwordConfirm', 'passwordConfirmErrInfo', "Confirm the password");
+    if(passwordConfirm == '') inputInvalid('passwordConfirm', 'passwordConfirmErrInfo', "Confirm the password");
     else if(passwordConfirm !== password) inputInvalid('passwordConfirm', 'passwordConfirmErrInfo', "Passwords do not match");
     else inputGood('passwordConfirm', 'passwordConfirmErrInfo');
 }
 
-function validateEmail(emailAddress) {
-    let exp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return exp.test(emailAddress);
+function validateEmail(email) {
+    return regExp.test(email);
 }
 
 function inputInvalid(inputElementTag, errElementTag, errorMessage) {
