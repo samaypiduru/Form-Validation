@@ -10,7 +10,7 @@ function validateData() {
     else inputGood('username', 'usernameErrInfo');
 
     if(email == '') inputInvalid('email', 'emailErrInfo', "Email cannot be blank");
-    else if(!validateEmail(email)) inputInvalid('email', 'emailErrInfo', "Email is invalid");
+    else if(!regExp.test(email)) inputInvalid('email', 'emailErrInfo', "Email is invalid");
     else inputGood('email', 'emailErrInfo');
 
     if(password == '') inputInvalid('password', 'passwordErrInfo', 'Password cannot be blank');
@@ -19,10 +19,6 @@ function validateData() {
     if(passwordConfirm == '') inputInvalid('passwordConfirm', 'passwordConfirmErrInfo', "Confirm the password");
     else if(passwordConfirm !== password) inputInvalid('passwordConfirm', 'passwordConfirmErrInfo', "Passwords do not match");
     else inputGood('passwordConfirm', 'passwordConfirmErrInfo');
-}
-
-function validateEmail(email) {
-    return regExp.test(email);
 }
 
 function inputInvalid(inputElementTag, errElementTag, errorMessage) {
